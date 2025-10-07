@@ -42,6 +42,8 @@ def create_grow_flag(df, column_name):
     Returns:
         pd.DataFrame: датафрейм с добавленным бинарным столбцом 'growth_flag'
     """
+    if not isinstance(df, pd.DataFrame):
+        raise TypeError(f"df should be a pandas.DataFrame")
     if column_name not in df.columns:
         raise ValueError(f"Column '{column_name}' is missing from dataframe.")
     df = df.copy()
